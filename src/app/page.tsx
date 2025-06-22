@@ -74,11 +74,14 @@ export default function Home() {
         </CardContent>
       </Card>
     </div>
-    <div className="flex justify-center mt-5 space-x-4">
+    {session && (<div className="flex justify-center mt-5 space-x-4">
         <Link href='/add-image' className="rounded-lg bg-gray-600 font-bold block text-white px-6 py-3 border border-transparent hover:border-blue-600">Add image</Link>
   
         <Link href='/add-video' className="rounded-lg bg-gray-600 font-bold block text-white px-6 py-3 border border-transparent hover:border-blue-600">Add video</Link>
+
+        <Link href='/get-video' className="rounded-lg bg-gray-600 font-bold block text-white px-6 py-3 border border-transparent hover:border-blue-600">Get videos</Link>
       </div>
+    )}
       </div>
   )
 }
