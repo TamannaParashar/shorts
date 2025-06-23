@@ -1,5 +1,8 @@
 import mongoose from "mongoose";
-const url = "mongodb://localhost:27017/shorts";
+const url = process.env.MONGODB_URL;
+if(!url){
+    throw new Error("mongodb url not found")
+}
 mongoose.connect(url);
 const db = mongoose.connection;
 db.on('connected',()=>{
