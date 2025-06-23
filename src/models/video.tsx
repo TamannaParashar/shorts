@@ -15,7 +15,8 @@ export interface IVideo{
         width: number;
         quality: number;
     };
-}
+    uploadedBy?: string;
+};
 const videoSchema = new Schema<IVideo>(
     {
         title:{
@@ -53,10 +54,14 @@ const videoSchema = new Schema<IVideo>(
                 max: 100
             },
         },
+        uploadedBy:{
+            type: String
+        },
     },
     {
         timestamps: true,
     }
 );
-const Video = mongoose.models?.Video || mongoose.model<IVideo>("Video",videoSchema)
+delete mongoose.models?.Video
+const Video = mongoose.model<IVideo>("Video",videoSchema)
 export default Video;

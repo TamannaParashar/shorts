@@ -23,7 +23,7 @@ export async function GET() {
 
 export async function POST(request: NextRequest) {
   try {
-    const session = await getServerSession(handler);
+    const session = await getServerSession(handler) as {user?:{email?:string}};
     if (!session) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
@@ -31,7 +31,7 @@ export async function POST(request: NextRequest) {
     if (db.readyState !== 1) {
       console.log("MongoDB not connected.");
     }
-
+    
     const body: IVideo = await request.json();
     if (
       !body.title ||
@@ -44,7 +44,7 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       );
     }
-
+    const userEmail = session.user?.email
     const videoData = {
       ...body,
       controls: body.controls ?? true,
@@ -53,6 +53,7 @@ export async function POST(request: NextRequest) {
         width: 1080,
         quality: body.transformation?.quality ?? 100,
       },
+      uploadedBy: userEmail,
     };
 
     const newVideo = await Video.create(videoData);
