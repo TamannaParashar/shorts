@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# shorts – A Full-Stack Video & Image Sharing App
 
-## Getting Started
+**shorts** is a full-stack web application built with **Next.js** that allows users to upload images and videos — similar to YouTube — and browse uploaded videos in a sleek UI.
 
-First, run the development server:
+---
+
+## 🚀 Features
+
+- 🔐 Secure user authentication via **NextAuth**
+- 📸 Image uploads using **ImageKit**
+- 📹 Video uploads with auto-generated thumbnail support
+- 📂 MongoDB-based persistent storage for video metadata
+- 💻 Clean, responsive UI for upload and browsing
+- 🧠 Built with modern web technologies using **Next.js App Router**
+
+---
+
+## 🛠️ Tech Stack
+
+| Technology  | Purpose                        |
+|-------------|--------------------------------|
+| Next.js     | Full-stack React framework     |
+| MongoDB     | Database to store videos/data  |
+| NextAuth.js | Authentication and sessions    |
+| ImageKit    | Image/video upload + CDN       |
+| Tailwind CSS| Modern, utility-first styling  |
+
+---
+
+## 📸 Screenshots
+
+### 🏠 Home Page with Three Options
+
+- **Add Image**
+- **Add Video**
+- **Get Videos**
+
+| Feature        | Screenshot |
+|----------------|------------|
+| ➕ Add Image    | ![Add Image](./public/screenshots/add-image.png) |
+| 🎥 Add Video    | ![Add Video](./public/screenshots/add-video.png) |
+| 📺 Get Videos   | ![Get Videos](./public/screenshots/get-video.png) |
+
+> 💡 Make sure the image paths are valid in your project — store them inside `public/screenshots/`.
+
+---
+
+## ⚙️ Getting Started
+
+### 1. 📥 Clone the repo
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/TamannaParashar/shorts.git
+cd shorts
 ```
+ ### 2. 📦 Install dependencies
+```bash
+npm install
+# or
+yarn
+```
+### 3. Create .env.local file and add the environment variables
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 4. Run the development server
+```bash
+npm run dev
+```

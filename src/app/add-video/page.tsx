@@ -77,9 +77,9 @@ export default function AddVideoPage() {
             {thumbnailUrl && (
               <div className="mt-3">
                 <img
-                  src={thumbnailUrl || "/placeholder.svg"}
+                  src="/video-success.png"
                   alt="Video thumbnail"
-                  className="w-full h-32 object-cover rounded-lg border border-gray-200 shadow-sm"
+                  className="w-full h-40 object-contain rounded-lg border border-gray-200 shadow-sm"
                 />
               </div>
             )}
