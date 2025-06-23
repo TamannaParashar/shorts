@@ -39,6 +39,7 @@ export default function AddVideoPage() {
       setVideoUrl(null)
       setVideoUpload(prev=>prev+1)
     } catch (err) {
+       console.error("Failed to save video:", err);
       alert("Failed to save video")
     } finally {
       setLoading(false)

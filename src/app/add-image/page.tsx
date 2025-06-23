@@ -37,6 +37,7 @@ export default function AddImagePage() {
       setLoading(false)
       setFileUpload(prev=>prev+1)
     } catch (err) {
+       console.error("Failed to save image:", err);
       alert("Failed to save image")
     } finally {
       setLoading(false)

@@ -13,6 +13,7 @@ export async function GET() {
     const videos = await Video.find({}).sort({ createdAt: -1 }).lean();
     return NextResponse.json(videos, { status: 200 });
   } catch (error) {
+     console.error("Some problem occured:", error);
     return NextResponse.json(
       { error: "Failed to fetch videos" },
       { status: 500 }
@@ -58,6 +59,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(newVideo, { status: 201 });
   } catch (error) {
+     console.error("Some problem occured", error);
     return NextResponse.json(
       { error: "Failed to create video" },
       { status: 500 }
