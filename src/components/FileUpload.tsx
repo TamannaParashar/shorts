@@ -37,7 +37,7 @@ export default function FileUpload({ fileType, onSuccessAction }: FileUploadProp
       }
 
       onSuccessAction({ url: result.url, thumbnailUrl: result.thumbnailUrl });
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error("Upload failed", err);
       setError("Upload failed. Please try again.");
     } finally {

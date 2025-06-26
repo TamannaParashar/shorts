@@ -11,6 +11,8 @@ db.on('connected',()=>{
 db.on('disconnected',()=>{
     console.log('not connected to database')
 })
-db.on("error",(err)=>{console.log('Got an error'),err});
+db.on("error",(err)=>{
+    console.log('Got an error',err)
+});
 
 export default db;
