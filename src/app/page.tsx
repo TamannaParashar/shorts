@@ -19,7 +19,7 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-950">
+    <div className="min-h-screen bg-gray-950 pb-20">
     <div className="flex items-center justify-center p-4">
       <Card className="w-full max-w-md bg-gray-600 border-gray-800">
 

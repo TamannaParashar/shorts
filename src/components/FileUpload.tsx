@@ -21,6 +21,10 @@ export default function FileUpload({ fileType, onSuccessAction }: FileUploadProp
 
     try {
       const authRes = await fetch("/api/auth/imagekit-auth");
+      if (!authRes.ok) {
+        const errorData = await authRes.json().catch(() => ({}));
+        throw new Error(errorData.err || "Failed to authenticate with ImageKit");
+      }
       const auth = await authRes.json();
 
       const result = await upload({
