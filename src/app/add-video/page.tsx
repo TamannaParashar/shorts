@@ -47,7 +47,7 @@ export default function AddVideoPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-900 py-8">
+    <div className="min-h-screen bg-gray-900 py-8 pb-20">
       <div className="max-w-xl mx-auto p-8 space-y-6 bg-white rounded-xl shadow-lg border border-gray-200">
         <h1 className="text-3xl font-bold text-gray-900 text-center mb-8">Upload Video</h1>
 

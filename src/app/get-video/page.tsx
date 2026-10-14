@@ -14,12 +14,21 @@ export default function HomePage() {
 
   useEffect(() => {
     const fetchVideos = async () => {
-      try{
+      try {
         const response = await fetch('/api/video')
-        const data = await response.json()
-        setVideos(data)
-      } catch(err) {
-        console.log("Error fetching videos",err)
+        if (response.ok) {
+          const data = await response.json()
+          if (Array.isArray(data)) {
+            setVideos(data)
+          } else {
+            setVideos([])
+          }
+        } else {
+          setVideos([])
+        }
+      } catch (err) {
+        console.error("Error fetching videos", err)
+        setVideos([])
       }
     }
 
@@ -27,7 +36,7 @@ export default function HomePage() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white p-6">
+    <div className="min-h-screen bg-gray-900 text-white p-6 pb-20">
       <h1 className="text-3xl font-bold mb-6 text-center">All Uploaded Videos</h1>
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {videos.map((video) => (

@@ -2,7 +2,6 @@
 
 import { useState } from "react"
 import FileUpload from "@/components/FileUpload"
-import Link from "next/link"
 
 export default function AddImagePage() {
   const [title, setTitle] = useState("")
@@ -45,7 +44,7 @@ export default function AddImagePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-900 py-8">
+    <div className="min-h-screen bg-gray-900 py-8 pb-20">
       <div className="max-w-xl mx-auto p-8 space-y-4 bg-white rounded-xl shadow-lg border border-gray-200">
         <h1 className="text-3xl font-bold text-gray-900 text-center mb-8">Upload Image</h1>
 
@@ -71,12 +70,14 @@ export default function AddImagePage() {
               </svg>
               Image uploaded!
             </p>
-            <button
-              onClick={() => alert("Directing to imagekit. Do you want to continue?")}
-              className="text-blue-600 hover:text-blue-800 underline text-sm transition-colors"
+            <a
+              href={imageUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:text-blue-800 underline text-sm transition-colors inline-block"
             >
-              <Link href={imageUrl}>Follow here</Link>
-            </button>
+              Follow here
+            </a>
             <img
               src={imageUrl || "/placeholder.svg"}
               alt=""
