@@ -7,7 +7,7 @@ export interface IVideo{
     _id?: mongoose.Types.ObjectId;
     title:string;
     description:string;
-    videoUrl: string;
+    videoUrl?: string;
     thumbnailUrl: string;
     controls?: boolean;
     transformation?: {
@@ -29,7 +29,7 @@ const videoSchema = new Schema<IVideo>(
         },
         videoUrl:{
             type: String,
-            required: true
+            required: false
         },
         thumbnailUrl:{
             type: String,
@@ -62,6 +62,5 @@ const videoSchema = new Schema<IVideo>(
         timestamps: true,
     }
 );
-delete mongoose.models?.Video
-const Video = mongoose.model<IVideo>("Video",videoSchema)
+const Video = mongoose.models?.Video || mongoose.model<IVideo>("Video", videoSchema);
 export default Video;
